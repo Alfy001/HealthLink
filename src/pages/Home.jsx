@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Heart, Guitar as Hospital, UserCog, ChevronRight, Shield, Users, ClipboardCheck } from 'lucide-react';
+import {   MessageCircle, Star, Twitter, Facebook, Instagram, Mail } from 'lucide-react';
 import './Home.css'; // Import the CSS file
 import { useNavigate } from 'react-router-dom';
 import getContract from "../utils/contract";
@@ -60,7 +61,7 @@ function Home() {
         <div className="navbar-content">
           <div className="navbar-logo">
             <Heart className="h-8 w-8 text-blue-600" />
-            <span>MedaMex</span>
+            <span>HealthLink</span>
           </div>
           <div className="navbar-buttons">
             <button
@@ -83,9 +84,11 @@ function Home() {
       <div className="hero-section">
         <div className="hero-content">
           <div className="hero-text">
-            <h1>Revolutionizing Healthcare Management</h1>
+            <h1>Revolutionizing Healthcare with HealthLink</h1>
             <p>
-              Secure, efficient, and transparent healthcare record management powered by blockchain technology.
+              HealthLink is a blockchain-based platform designed to improve access to medical data and enhance security. 
+              By leveraging decentralized storage and advanced encryption, we ensure that patient records are secure, 
+              accessible, and up-to-date for authorized healthcare providers.
             </p>
             <button>
               Learn More <ChevronRight className="h-4 w-4" />
@@ -130,6 +133,57 @@ function Home() {
         </div>
       </div>
 
+      {/* Testimonials Section */}
+      <div className="testimonials-section">
+        <div className="testimonials-content">
+          <h2>What Our Users Say</h2>
+          <div className="testimonials-grid">
+            <div className="testimonial-card">
+              <MessageCircle className="h-12 w-12 text-blue-600 mb-4" />
+              <p>
+                "HealthLink has transformed how we manage patient records. It's secure, efficient, and easy to use!"
+              </p>
+              <div className="testimonial-author">
+                <Star className="h-4 w-4 text-yellow-400" />
+                <span>Dr. John Doe</span>
+              </div>
+            </div>
+            <div className="testimonial-card">
+              <MessageCircle className="h-12 w-12 text-blue-600 mb-4" />
+              <p>
+                "The blockchain integration ensures data integrity like never before. Highly recommended!"
+              </p>
+              <div className="testimonial-author">
+                <Star className="h-4 w-4 text-yellow-400" />
+                <span>Jane Smith</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-logo">
+            <Heart className="h-8 w-8 text-blue-600" />
+            <span>HealthLink</span>
+          </div>
+          <div className="footer-social">
+            <a href="#"><Twitter className="h-6 w-6" /></a>
+            <a href="#"><Facebook className="h-6 w-6" /></a>
+            <a href="#"><Instagram className="h-6 w-6" /></a>
+          </div>
+          <div className="footer-newsletter">
+            <p>Subscribe to our newsletter</p>
+            <form>
+              <input type="email" placeholder="Enter your email" />
+              <button type="submit"><Mail className="h-4 w-4" /></button>
+            </form>
+          </div>
+        </div>
+      </footer>
+
       {/* Admin Login Modal */}
       {showAdminLogin && (
         <div className="modal-overlay">
@@ -139,10 +193,6 @@ function Home() {
               <button onClick={() => setShowAdminLogin(false)}>×</button>
             </div>
             <form className="modal-form" onSubmit={handleAdminLogin}>
-              <div>
-                <label>Wallet Address</label>
-                <input type="text" placeholder="Enter your wallet address" />
-              </div>
               <button type="submit">
                 <UserCog className="h-5 w-5 mr-2" />
                 Login as Admin
@@ -161,10 +211,6 @@ function Home() {
               <button onClick={() => setShowHospitalLogin(false)}>×</button>
             </div>
             <form className="modal-form" onSubmit={handleHospitalLogin}>
-              <div>
-                <label>Hospital Wallet Address</label>
-                <input type="text" placeholder="Enter hospital wallet address" />
-              </div>
               <button type="submit">
                 <Hospital className="h-5 w-5 mr-2" />
                 Login as Hospital
